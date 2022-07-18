@@ -1,0 +1,20 @@
+{
+  "name": "@marcus-rise/react-theme",
+  "version": "0.1.0",
+  "description": "react theme toggle hook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "theme",
+    "hook"
+  ],
+  "author": {
+    "name": "Ilya Konstantinov",
+    "email": "ilya.konstantinov2022@mail.ru",
+    "url": "https://ilya-konstantinov.ru"
+  },
+  "license": "ISC"
+}
