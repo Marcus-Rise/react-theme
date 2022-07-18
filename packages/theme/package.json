@@ -12,7 +12,8 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "yarn build --watch"
+    "dev": "yarn build --watch",
+    "prepublishOnly": "yarn build"
   },
   "files": [
     "dist/"
