@@ -10,9 +10,10 @@
     "moduleResolution": "Node",
     "declaration": true,
     "sourceMap": true,
+    "skipLibCheck": true,
     "noImplicitAny": true,
     "strict": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
   },
   "include": [
     "src"
