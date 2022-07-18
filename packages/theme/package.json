@@ -1,5 +1,7 @@
 {
-  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "name": "@marcus-rise/react-theme",
   "license": "MIT",
   "version": "0.1.0",
