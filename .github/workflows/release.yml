@@ -26,7 +26,6 @@ jobs:
           name: dist
 
       - name: Publish
-        working-directory: packages/theme
         run: |
           ls dist
 
