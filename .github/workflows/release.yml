@@ -24,9 +24,11 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist
-          path: ./dist
+          path: ./packages/theme/dist
 
       - name: Publish
-        run: |
-          ls dist
-
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/theme/package.json
+          dry-run: true
