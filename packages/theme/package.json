@@ -1,0 +1,42 @@
+{
+  "name": "@marcus-rise/react-theme",
+  "license": "MIT",
+  "version": "0.1.0",
+  "description": "react theme toggle hook",
+  "author": {
+    "name": "Ilya Konstantinov",
+    "email": "ilya.konstantinov2022@mail.ru",
+    "url": "https://ilya-konstantinov.ru"
+  },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "yarn build --watch",
+    "prepublishOnly": "yarn build"
+  },
+  "files": [
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcus-Rise/react-theme.git",
+    "directory": "packages/react-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/Marcus-Rise/react-theme/issues"
+  },
+  "homepage": "https://react-theme.marcus-rise.dev",
+  "keywords": [
+    "react",
+    "theme",
+    "hook"
+  ],
+  "devDependencies": {
+    "@types/react": "^16",
+    "typescript": "^4.7.4"
+  },
+  "peerDependencies": {
+    "react": "^16"
+  }
+}
