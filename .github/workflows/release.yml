@@ -24,8 +24,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist
+          path: ./dist
 
       - name: Publish
         run: |
-          ls -R
+          ls dist
 
