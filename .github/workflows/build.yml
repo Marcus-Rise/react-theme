@@ -37,7 +37,7 @@ jobs:
         run: yarn install --prefer-offline --frozen-lockfile
 
       - name: Build
-        run: yarn build
+        run: yarn workspace @marcus-rise/react-theme build
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
