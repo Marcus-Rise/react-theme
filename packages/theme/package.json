@@ -1,7 +1,7 @@
 {
   "name": "@marcus-rise/react-theme",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "react theme toggle hook",
   "author": {
     "name": "Ilya Konstantinov",
