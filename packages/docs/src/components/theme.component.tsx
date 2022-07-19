@@ -1,10 +1,10 @@
 import styled, {ThemeProvider} from "styled-components";
 import {FC, useMemo} from "react";
-import {ThemeEnum, ThemePreferencesEnum, useTheme} from "@marcus-rise/react-theme";
+import {ThemePreferencesEnum, useTheme} from "@marcus-rise/react-theme";
 import {darkTheme, defaultTheme, GlobalStyles} from "../styles";
 
 const ThemeToggle = styled.button`
-  background-color: ${({ theme }) => theme.primary};
+  background-color: ${({theme}) => theme.primary};
   border: none;
   border-radius: 100%;
   font-size: 1rem;
@@ -15,31 +15,31 @@ const ThemeToggle = styled.button`
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  color: ${({ theme }) => theme.lightest};
+  color: ${({theme}) => theme.lightest};
 
   &:hover {
     cursor: pointer;
   }
 `;
 
-const Theme: FC = ({  }) => {
-  const { theme, preferences, toggleTheme } = useTheme("APP_THEME");
+const Theme: FC = () => {
+  const {isDarkTheme, preferences, toggleTheme} = useTheme("APP_THEME");
 
-  const { icon, title } = useMemo(() => {
+  const {icon, title} = useMemo(() => {
     let meta: { icon: string; title: string };
 
     switch (preferences) {
       case ThemePreferencesEnum.LIGHT: {
-        meta = { title: "Light", icon: "☀︎" };
+        meta = {title: "Light", icon: "☀︎"};
         break;
       }
       case ThemePreferencesEnum.DARK: {
-        meta = { title: "Dark", icon: "☾" };
+        meta = {title: "Dark", icon: "☾"};
         break;
       }
       case ThemePreferencesEnum.SYSTEM:
       default: {
-        meta = { title: "System", icon: "⌽" };
+        meta = {title: "System", icon: "⌽"};
         break;
       }
     }
@@ -47,7 +47,7 @@ const Theme: FC = ({  }) => {
     return meta;
   }, [preferences]);
 
-  const currentTheme = useMemo(() => (theme == ThemeEnum.DARK ? darkTheme : defaultTheme), [theme]);
+  const currentTheme = useMemo(() => (isDarkTheme ? darkTheme : defaultTheme), [isDarkTheme]);
 
   return (
     <>
@@ -61,4 +61,4 @@ const Theme: FC = ({  }) => {
   );
 };
 
-export { Theme };
+export {Theme};

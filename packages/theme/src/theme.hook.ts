@@ -1,11 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { ThemePreferencesEnum, useThemePreferences } from "./theme-preferences.hook";
-import { useThemeSystemDark } from "./theme-system–dark.hook";
-
-enum ThemeEnum {
-  LIGHT,
-  DARK,
-}
+import {useCallback, useEffect, useState} from "react";
+import {ThemePreferencesEnum, useThemePreferences} from "./theme-preferences.hook";
+import {useThemeSystemDark} from "./theme-system–dark.hook";
 
 /**
  *
@@ -41,13 +36,11 @@ const useTheme = (localStorageKey?: string) => {
     }
   }, [isThemeSystemDark, preferences]);
 
-  const theme: ThemeEnum = useMemo(() => (isDark ? ThemeEnum.DARK : ThemeEnum.LIGHT), [isDark]);
-
   return {
-    theme,
+    isDarkTheme: isDark,
     preferences,
     toggleTheme,
   };
 };
 
-export { useTheme, ThemeEnum };
+export {useTheme};
