@@ -1,46 +1,46 @@
-import {useCallback, useEffect, useState} from "react";
-import {ThemePreferencesEnum, useThemePreferences} from "./theme-preferences.hook";
-import {useThemeSystemDark} from "./theme-system–dark.hook";
+import { useCallback, useContext, useEffect } from "react";
+import { useThemePreferences } from "./theme-preferences.hook";
+import { ThemeContext } from "./theme.context";
+import { ThemeReducerActions } from "./theme.reducer";
+import { ThemePreference } from "./types";
 
-/**
- *
- * @param localStorageKey {string} storing value in local storage
- */
-const useTheme = (localStorageKey?: string) => {
-  const [isDark, setIsDark] = useState(false);
-  const [preferences, savePreferences] = useThemePreferences(localStorageKey);
-  const isThemeSystemDark = useThemeSystemDark();
+const useTheme = () => {
+  const { dispatch, state } = useContext(ThemeContext);
+  const { savePreferences } = useThemePreferences();
 
   const toggleTheme = useCallback(() => {
-    switch (preferences) {
-      case ThemePreferencesEnum.LIGHT: {
-        savePreferences(ThemePreferencesEnum.DARK);
+    switch (state.preferences) {
+      case ThemePreference.LIGHT: {
+        savePreferences(ThemePreference.DARK);
         break;
       }
-      case ThemePreferencesEnum.DARK: {
-        savePreferences(ThemePreferencesEnum.SYSTEM);
+      case ThemePreference.DARK: {
+        savePreferences(ThemePreference.SYSTEM);
         break;
       }
       default: {
-        savePreferences(ThemePreferencesEnum.LIGHT);
+        savePreferences(ThemePreference.LIGHT);
         break;
       }
     }
-  }, [preferences, savePreferences]);
+  }, [state.preferences, savePreferences]);
 
   useEffect(() => {
-    if (preferences === ThemePreferencesEnum.SYSTEM) {
-      setIsDark(isThemeSystemDark);
+    if (state.preferences === ThemePreference.SYSTEM) {
+      dispatch({ type: ThemeReducerActions.SET_IS_THEME_DARK, payload: state.isSystemThemeDark });
     } else {
-      setIsDark(preferences === ThemePreferencesEnum.DARK);
+      dispatch({
+        type: ThemeReducerActions.SET_IS_THEME_DARK,
+        payload: state.preferences === ThemePreference.DARK,
+      });
     }
-  }, [isThemeSystemDark, preferences]);
+  }, [state.preferences, state.isSystemThemeDark]);
 
   return {
-    isDarkTheme: isDark,
-    preferences,
+    isDarkTheme: state.isDark,
+    preferences: state.preferences,
     toggleTheme,
   };
 };
 
-export {useTheme};
+export { useTheme };

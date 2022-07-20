@@ -1,24 +1,28 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "module": "commonjs",
-    "target": "es5",
-    "lib": [
-      "ES2015",
-      "DOM"
-    ],
+    "module": "ESNext",
     "moduleResolution": "Node",
     "declaration": true,
+    "declarationDir": "types",
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
     "sourceMap": true,
-    "skipLibCheck": true,
-    "noImplicitAny": true,
     "strict": true,
     "strictNullChecks": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "jsx": "react-jsx",
+    "resolveJsonModule": true
   },
   "include": [
-    "src"
+    "src",
+    "rollup.config.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
 }
