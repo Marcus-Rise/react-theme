@@ -57,6 +57,17 @@ const ThemeProvider: FC<PropsWithChildren<Config>> = ({ children, preferencesSto
     });
   }, []);
 
+  useEffect(() => {
+    if (state.preferences === ThemePreference.SYSTEM) {
+      dispatch({ type: ThemeReducerActions.SET_IS_THEME_DARK, payload: state.isSystemThemeDark });
+    } else {
+      dispatch({
+        type: ThemeReducerActions.SET_IS_THEME_DARK,
+        payload: state.preferences === ThemePreference.DARK,
+      });
+    }
+  }, [state.preferences, state.isSystemThemeDark]);
+
   return <ThemeContext.Provider value={{ state, dispatch }}>{children}</ThemeContext.Provider>;
 };
 
