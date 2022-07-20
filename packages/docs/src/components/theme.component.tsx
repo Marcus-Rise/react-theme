@@ -1,10 +1,10 @@
-import styled, {ThemeProvider} from "styled-components";
-import {FC, useMemo} from "react";
-import {ThemePreferencesEnum, useTheme} from "@marcus-rise/react-theme";
-import {darkTheme, defaultTheme, GlobalStyles} from "../styles";
+import styled, { ThemeProvider } from "styled-components";
+import { FC, useMemo } from "react";
+import { darkTheme, defaultTheme, GlobalStyles } from "../styles";
+import { ThemePreference, useTheme } from "@marcus-rise/react-theme";
 
 const ThemeToggle = styled.button`
-  background-color: ${({theme}) => theme.primary};
+  background-color: ${({ theme }) => theme.primary};
   border: none;
   border-radius: 100%;
   font-size: 1rem;
@@ -15,7 +15,7 @@ const ThemeToggle = styled.button`
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  color: ${({theme}) => theme.lightest};
+  color: ${({ theme }) => theme.lightest};
 
   &:hover {
     cursor: pointer;
@@ -23,23 +23,23 @@ const ThemeToggle = styled.button`
 `;
 
 const Theme: FC = () => {
-  const {isDarkTheme, preferences, toggleTheme} = useTheme("APP_THEME");
+  const { isDarkTheme, preferences, toggleTheme } = useTheme();
 
-  const {icon, title} = useMemo(() => {
+  const { icon, title } = useMemo(() => {
     let meta: { icon: string; title: string };
 
     switch (preferences) {
-      case ThemePreferencesEnum.LIGHT: {
-        meta = {title: "Light", icon: "☀︎"};
+      case ThemePreference.LIGHT: {
+        meta = { title: "Light", icon: "☀︎" };
         break;
       }
-      case ThemePreferencesEnum.DARK: {
-        meta = {title: "Dark", icon: "☾"};
+      case ThemePreference.DARK: {
+        meta = { title: "Dark", icon: "☾" };
         break;
       }
-      case ThemePreferencesEnum.SYSTEM:
+      case ThemePreference.SYSTEM:
       default: {
-        meta = {title: "System", icon: "⌽"};
+        meta = { title: "System", icon: "⌽" };
         break;
       }
     }
@@ -50,15 +50,13 @@ const Theme: FC = () => {
   const currentTheme = useMemo(() => (isDarkTheme ? darkTheme : defaultTheme), [isDarkTheme]);
 
   return (
-    <>
-      <ThemeProvider theme={currentTheme}>
-        <GlobalStyles/>
-        <ThemeToggle onClick={toggleTheme} title={title}>
-          {icon}
-        </ThemeToggle>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={currentTheme}>
+      <GlobalStyles />
+      <ThemeToggle onClick={toggleTheme} title={title}>
+        {icon}
+      </ThemeToggle>
+    </ThemeProvider>
   );
 };
 
-export {Theme};
+export { Theme };

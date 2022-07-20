@@ -1,6 +1,5 @@
 {
   "private": true,
-  "name": "@marcus-rise/react-theme",
   "workspaces": [
     "packages/*"
   ],
