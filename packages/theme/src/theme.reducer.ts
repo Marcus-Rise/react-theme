@@ -43,8 +43,6 @@ type ThemeReducerAction =
   | ThemeReducerActionSetPreferences;
 
 const themeReducer: Reducer<ThemeReducerState, ThemeReducerAction> = (prevState, action) => {
-  console.debug(action);
-
   switch (action.type) {
     case ThemeReducerActions.SET_IS_THEME_DARK: {
       return {
