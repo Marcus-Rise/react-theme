@@ -25,7 +25,7 @@
     "build-storybook": "build-storybook"
   },
   "files": [
-    "README.md",
+    "../../README.md",
     "dist/"
   ],
   "repository": {
