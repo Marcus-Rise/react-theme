@@ -3,7 +3,8 @@ import type { DefaultTheme } from "styled-components";
 const defaultTheme: DefaultTheme = {
   primary: "#1c33a8",
   background: "#fff",
-  lightest: "#eee",
+  lightest: "#e1e1e1",
+  text: "#282828",
 };
 
 const createTheme = (theme: Partial<DefaultTheme>): DefaultTheme => ({
@@ -12,8 +13,9 @@ const createTheme = (theme: Partial<DefaultTheme>): DefaultTheme => ({
 });
 
 const darkTheme = createTheme({
+  primary: "#750d74",
   background: "#262626",
-  lightest: "#eee",
+  text: "#eee",
 });
 
 export { defaultTheme, darkTheme };
