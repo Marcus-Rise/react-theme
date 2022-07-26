@@ -57,7 +57,7 @@ To set custom localStorage key set `preferencesStorageKey` property for user pre
 
 ### Hook `useTheme`
 
-- `isDarkTheme` - what color scheme is selected, basing on user preferences and system settings
+- `isDarkTheme` - `boolean` what color scheme is selected, basing on user preferences and system settings
 - `preferences` - is a `string` form `enum`
 
 ```ts
@@ -74,5 +74,5 @@ you can import this enum directly
 import {ThemeProvider} from "@marcus-rise/react-theme";
 ```
 
-- `toggleTheme` - function, that toggle preferences from `system` -> `light` -> `dark`
+- `toggleTheme` - `function`, that toggle preferences from `system` -> `light` -> `dark`
 
