@@ -72,7 +72,7 @@ enum ThemePreference {
 you can import this enum directly
 
 ```ts
-import {ThemeProvider} from "@marcus-rise/react-theme";
+import {ThemePreference} from "@marcus-rise/react-theme";
 ```
 
 - `toggleTheme` is a `function`, that toggle preferences from `system` -> `light` -> `dark`
