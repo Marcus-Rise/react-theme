@@ -59,7 +59,7 @@ To set custom localStorage key set `preferencesStorageKey` property for user pre
 
 - `isDarkTheme` is a`boolean` what color scheme is selected, basing on user preferences and system
   settings
-- `preferences` is a `string` form `enum`
+- `preferences` is a `string` from `enum`
 
 ```ts
 enum ThemePreference {
