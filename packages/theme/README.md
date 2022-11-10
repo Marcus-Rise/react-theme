@@ -2,6 +2,8 @@
 
 Handle system color scheme and user preferences.
 
+https://react-theme.marcus-rise.dev
+
 ## Install
 
 using `npm`
