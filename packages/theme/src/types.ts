@@ -1,7 +1,6 @@
 enum ThemePreference {
   DARK = "dark",
   LIGHT = "light",
-  SYSTEM = "system",
 }
 
 type ThemePreferences = ThemePreference | string;

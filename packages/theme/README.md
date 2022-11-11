@@ -61,7 +61,11 @@ To set custom localStorage key set `preferencesStorageKey` property for user pre
 
 - `isDarkTheme` is a`boolean` what color scheme is selected, basing on user preferences and system
   settings
-- `preferences` is a `string` from `enum`
+- `preferences` is a `string` form `enum`
+- `toggleTheme` toggle theme from system default to light, from light to dark and from dark to
+  system default
+- `setTheme` set theme (dark or light)
+- `resetThemeToSystem` set theme to system default
 
 ```ts
 enum ThemePreference {
@@ -74,7 +78,7 @@ enum ThemePreference {
 you can import this enum directly
 
 ```ts
-import {ThemePreference} from "@marcus-rise/react-theme";
+import {ThemeProvider} from "@marcus-rise/react-theme";
 ```
 
 - `toggleTheme` is a `function`, that toggle preferences from `system` -> `light` -> `dark`
