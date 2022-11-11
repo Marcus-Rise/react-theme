@@ -22,11 +22,9 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        working-directory: ./packages/theme
         run: yarn install --frozen-lockfile
 
       - name: Build
-        working-directory: ./packages/theme
         run: |
-          yarn lint
-          yarn build
+          yarn workspace theme lint
+          yarn workspace theme build

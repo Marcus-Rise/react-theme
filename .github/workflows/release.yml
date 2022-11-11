@@ -22,11 +22,9 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        working-directory: ./packages/theme
         run: yarn install --frozen-lockfile
 
       - name: Publish
-        working-directory: ./packages/theme
-        run: yarn publish
+        run: yarn workspace theme publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
