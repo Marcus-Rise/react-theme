@@ -1,7 +1,7 @@
 {
   "name": "@marcus-rise/react-theme",
   "license": "MIT",
-  "version": "0.4.6",
+  "version": "0.4.5",
   "description": "react theme toggle hook",
   "author": {
     "name": "Ilya Konstantinov",
@@ -11,18 +11,16 @@
   "publishConfig": {
     "access": "public"
   },
+  "source": "src/index.ts",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "typings": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
-    "lint": "eslint .",
-    "rollup": "rollup --config rollup.config.ts --configPlugin typescript",
-    "build": "yarn rollup",
+    "lint": "eslint src",
+    "dev": "parcel watch",
     "prebuild": "rimraf dist",
-    "dev": "yarn build --watch",
-    "prepublishOnly": "yarn build",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build": "parcel build",
+    "prepublishOnly": "yarn build"
   },
   "files": [
     "dist/"
@@ -42,37 +40,24 @@
     "hook"
   ],
   "devDependencies": {
-    "@babel/core": "^7.18.9",
-    "@rbnlffl/rollup-plugin-eslint": "^3.0.0",
-    "@rollup/plugin-commonjs": "^22.0.1",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "^8.3.3",
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-interactions": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
-    "@storybook/builder-webpack4": "^6.5.9",
-    "@storybook/manager-webpack4": "^6.5.9",
-    "@storybook/react": "^6.5.9",
-    "@storybook/testing-library": "^0.0.13",
-    "@types/react": "^17.0.47",
-    "@typescript-eslint/eslint-plugin": "^5.30.7",
-    "@typescript-eslint/parser": "^5.30.7",
-    "babel-loader": "^8.2.5",
-    "eslint": "^8.20.0",
+    "@parcel/packager-ts": "2.8.0",
+    "@parcel/transformer-typescript-types": "2.8.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.30.1",
-    "eslint-plugin-storybook": "^0.6.1",
+    "eslint-plugin-react": "^7.31.10",
+    "parcel": "^2.8.0",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.77.0",
-    "rollup-plugin-dts": "^4.2.2",
-    "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^4.7.4"
+    "typescript": "4.7"
   },
   "peerDependencies": {
-    "react": "^17.0.2"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "dependencies": {}
 }

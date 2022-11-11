@@ -1,1 +1,1 @@
-packages/theme/README.md
+./packages/theme/README.md

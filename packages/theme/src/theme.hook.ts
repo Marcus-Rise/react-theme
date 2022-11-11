@@ -5,7 +5,7 @@ import { ThemePreference } from "./types";
 
 const useTheme = () => {
   const { state } = useContext(ThemeContext);
-  const { savePreferences } = useThemePreferences();
+  const { savePreferences, clearPreferences } = useThemePreferences();
 
   const toggleTheme = useCallback(() => {
     switch (state.preferences) {
@@ -14,7 +14,7 @@ const useTheme = () => {
         break;
       }
       case ThemePreference.DARK: {
-        savePreferences(ThemePreference.SYSTEM);
+        clearPreferences();
         break;
       }
       default: {
@@ -28,6 +28,8 @@ const useTheme = () => {
     isDarkTheme: state.isDark,
     preferences: state.preferences,
     toggleTheme,
+    setTheme: savePreferences,
+    resetThemeToSystem: clearPreferences,
   };
 };
 

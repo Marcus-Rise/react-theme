@@ -18,13 +18,11 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: 'yarn'
 
       - name: Install dependencies
-        working-directory: ./packages/theme
         run: yarn install --frozen-lockfile
 
       - name: Build
-        working-directory: ./packages/theme
-        run: yarn build
+        run: yarn theme:build

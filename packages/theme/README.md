@@ -2,6 +2,8 @@
 
 Handle system color scheme and user preferences.
 
+https://react-theme.marcus-rise.dev
+
 ## Install
 
 using `npm`
@@ -31,7 +33,7 @@ const ThemeToggle = () => {
     <>
       <button onClick={toggleTheme}>toggle</button>
       <br/>
-      <span>preferences: {preferences}</span>
+      <span>preferences: {JSON.stringify(preferences)}</span>
       <br/>
       <span>isDarkTheme: {isDarkTheme ? "yes" : "no"}</span>
     </>
@@ -59,7 +61,7 @@ To set custom localStorage key set `preferencesStorageKey` property for user pre
 
 - `isDarkTheme` is a`boolean` what color scheme is selected, basing on user preferences and system
   settings
-- `preferences` is a `string` from `enum`
+- `preferences` is a `string` form `enum`
 
 ```ts
 enum ThemePreference {
@@ -69,11 +71,7 @@ enum ThemePreference {
 }
 ```
 
-you can import this enum directly
-
-```ts
-import {ThemePreference} from "@marcus-rise/react-theme";
-```
-
-- `toggleTheme` is a `function`, that toggle preferences from `system` -> `light` -> `dark`
-
+- `toggleTheme` toggle theme from system default to light, from light to dark and from dark to
+  system default
+- `setTheme` set theme (dark or light)
+- `resetThemeToSystem` set theme to system default

@@ -17,16 +17,14 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        working-directory: ./packages/theme
         run: yarn install --frozen-lockfile
 
       - name: Publish
-        run: yarn publish
-        working-directory: ./packages/theme
+        run: yarn theme publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

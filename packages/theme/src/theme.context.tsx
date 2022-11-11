@@ -23,6 +23,9 @@ const ThemeProvider: FC<PropsWithChildren<Config>> = ({ children, preferencesSto
     storageKey: preferencesStorageKey ?? themeReducerInitialState.storageKey,
   });
 
+  /**
+   * watching client prefers color scheme
+   */
   useEffect(() => {
     const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const eventName = "change";
@@ -40,25 +43,28 @@ const ThemeProvider: FC<PropsWithChildren<Config>> = ({ children, preferencesSto
     return () => darkModeQuery.removeEventListener(eventName, eventListener);
   }, []);
 
+  /**
+   * restore preferences from client
+   */
   useEffect(() => {
-    let preferences: ThemePreferences;
+    let preferences: ThemePreferences | null;
 
     try {
-      const restoredPreferences: ThemePreferences | null = localStorage.getItem(state.storageKey);
-
-      preferences = restoredPreferences ?? ThemePreference.SYSTEM;
+      preferences = localStorage.getItem(state.storageKey);
     } catch {
-      preferences = ThemePreference.SYSTEM;
+      preferences = null;
     }
 
-    dispatch({
-      type: ThemeReducerActions.SET_PREFERENCES,
-      payload: preferences,
-    });
+    if (preferences) {
+      dispatch({
+        type: ThemeReducerActions.SET_PREFERENCES,
+        payload: preferences,
+      });
+    }
   }, []);
 
   useEffect(() => {
-    if (state.preferences === ThemePreference.SYSTEM) {
+    if (!state.preferences) {
       dispatch({ type: ThemeReducerActions.SET_IS_THEME_DARK, payload: state.isSystemThemeDark });
     } else {
       dispatch({

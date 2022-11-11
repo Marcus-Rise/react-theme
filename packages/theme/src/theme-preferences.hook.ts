@@ -14,7 +14,12 @@ const useThemePreferences = () => {
     [state.storageKey],
   );
 
-  return { savePreferences };
+  const clearPreferences = useCallback(() => {
+    dispatch({ type: ThemeReducerActions.CLEAR_PREFERENCES });
+    localStorage.removeItem(state.storageKey);
+  }, [state.storageKey]);
+
+  return { savePreferences, clearPreferences };
 };
 
 export { useThemePreferences };
