@@ -2,13 +2,5 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ],
-  "scripts": {
-    "dev": "wsrun dev"
-  },
-  "devDependencies": {
-    "@parcel/transformer-typescript-types": "2.8.0",
-    "typescript": ">=3.0.0",
-    "wsrun": "^5.2.4"
-  }
+  ]
 }
