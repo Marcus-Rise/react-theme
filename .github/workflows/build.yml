@@ -25,6 +25,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build
+        working-directory: ./packages/theme
         run: |
-          yarn workspace theme lint
-          yarn workspace theme build
+          yarn lint
+          yarn build
