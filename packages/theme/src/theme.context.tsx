@@ -2,8 +2,7 @@ import type { Dispatch, FC, PropsWithChildren } from "react";
 import { createContext, useEffect, useReducer } from "react";
 import type { ThemeReducerAction, ThemeReducerState } from "./theme.reducer";
 import { themeReducer, ThemeReducerActions, themeReducerInitialState } from "./theme.reducer";
-import type { ThemePreferences } from "./types";
-import { ThemePreference } from "./types";
+import type { ThemePreferences } from "./theme-preferences";
 
 const ThemeContext = createContext<{
   state: ThemeReducerState;
@@ -62,17 +61,6 @@ const ThemeProvider: FC<PropsWithChildren<Config>> = ({ children, preferencesSto
       });
     }
   }, []);
-
-  useEffect(() => {
-    if (!state.preferences) {
-      dispatch({ type: ThemeReducerActions.SET_IS_THEME_DARK, payload: state.isSystemThemeDark });
-    } else {
-      dispatch({
-        type: ThemeReducerActions.SET_IS_THEME_DARK,
-        payload: state.preferences === ThemePreference.DARK,
-      });
-    }
-  }, [state.preferences, state.isSystemThemeDark]);
 
   return <ThemeContext.Provider value={{ state, dispatch }}>{children}</ThemeContext.Provider>;
 };

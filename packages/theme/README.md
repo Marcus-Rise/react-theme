@@ -67,7 +67,6 @@ To set custom localStorage key set `preferencesStorageKey` property for user pre
 enum ThemePreference {
   DARK = "dark",
   LIGHT = "light",
-  SYSTEM = "system",
 }
 ```
 

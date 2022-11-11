@@ -1,7 +1,7 @@
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useMemo } from "react";
 import { useThemePreferences } from "./theme-preferences.hook";
 import { ThemeContext } from "./theme.context";
-import { ThemePreference } from "./types";
+import { ThemePreference } from "./theme-preferences";
 
 const useTheme = () => {
   const { state } = useContext(ThemeContext);
@@ -24,8 +24,14 @@ const useTheme = () => {
     }
   }, [state.preferences, savePreferences]);
 
+  const isDark = useMemo(
+    () =>
+      !state.preferences ? state.isSystemThemeDark : state.preferences === ThemePreference.DARK,
+    [state.isSystemThemeDark, state.preferences],
+  );
+
   return {
-    isDarkTheme: state.isDark,
+    isDarkTheme: isDark,
     preferences: state.preferences,
     toggleTheme,
     setTheme: savePreferences,
