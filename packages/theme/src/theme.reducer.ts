@@ -1,8 +1,7 @@
 import type { Reducer } from "react";
-import type { ThemePreferences } from "./types";
+import type { ThemePreferences } from "./theme-preferences";
 
 type ThemeReducerState = {
-  isDark: boolean;
   isSystemThemeDark: boolean;
   storageKey: string;
   preferences: ThemePreferences | null;
@@ -11,21 +10,14 @@ type ThemeReducerState = {
 const themeReducerInitialState: ThemeReducerState = {
   preferences: null,
   storageKey: "THEME_PREFERENCES",
-  isDark: false,
   isSystemThemeDark: false,
 };
 
 enum ThemeReducerActions {
-  SET_IS_THEME_DARK = "SET_IS_THEME_DARK",
   SET_IS_SYSTEM_THEME_DARK = "SET_IS_SYSTEM_THEME_DARK",
   SET_PREFERENCES = "SET_PREFERENCES",
   CLEAR_PREFERENCES = "CLEAR_PREFERENCES",
 }
-
-type ThemeReducerActionIsSetThemeDark = {
-  type: ThemeReducerActions.SET_IS_THEME_DARK;
-  payload: boolean;
-};
 
 type ThemeReducerActionSetIsSystemThemeDark = {
   type: ThemeReducerActions.SET_IS_SYSTEM_THEME_DARK;
@@ -42,20 +34,12 @@ type ThemeReducerActionClearPreferences = {
 };
 
 type ThemeReducerAction =
-  | ThemeReducerActionIsSetThemeDark
   | ThemeReducerActionSetIsSystemThemeDark
   | ThemeReducerActionSetPreferences
   | ThemeReducerActionClearPreferences;
 
 const themeReducer: Reducer<ThemeReducerState, ThemeReducerAction> = (prevState, action) => {
   switch (action.type) {
-    case ThemeReducerActions.SET_IS_THEME_DARK: {
-      return {
-        ...prevState,
-        isDark: action.payload,
-      };
-    }
-
     case ThemeReducerActions.SET_IS_SYSTEM_THEME_DARK: {
       return {
         ...prevState,

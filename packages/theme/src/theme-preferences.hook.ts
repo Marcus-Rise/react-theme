@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import { ThemeContext } from "./theme.context";
-import type { ThemePreferences } from "./types";
+import type { ThemePreferences } from "./theme-preferences";
 import { ThemeReducerActions } from "./theme.reducer";
 
 const useThemePreferences = () => {

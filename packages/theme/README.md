@@ -33,18 +33,20 @@ const ThemeToggle = () => {
     <>
       <button onClick={toggleTheme}>toggle</button>
       <br/>
-      <span>preferences: {JSON.stringify(preferences)}</span>
+      <span>preferences: {preferences ?? "system default"}</span>
       <br/>
       <span>isDarkTheme: {isDarkTheme ? "yes" : "no"}</span>
     </>
-  )
-}
+  );
+};
 
 const App = () => (
   <ThemeProvider>
     <ThemeToggle/>
   </ThemeProvider>
-)
+);
+
+export {App};
 ```
 
 ## API
@@ -67,7 +69,6 @@ To set custom localStorage key set `preferencesStorageKey` property for user pre
 enum ThemePreference {
   DARK = "dark",
   LIGHT = "light",
-  SYSTEM = "system",
 }
 ```
 

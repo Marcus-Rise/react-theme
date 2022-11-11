@@ -1,3 +1,3 @@
 export * from "./theme.hook";
-export { ThemePreference } from "./types";
+export { ThemePreference } from "./theme-preferences";
 export { ThemeProvider } from "./theme.context";

@@ -6,7 +6,8 @@
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "skipLibCheck": true
   },
   "include": [
     "*.tsx"

@@ -7,7 +7,7 @@ const ThemeToggle = () => {
     <>
       <button onClick={toggleTheme}>toggle</button>
       <br />
-      <span>preferences: {preferences}</span>
+      <span>preferences: {preferences ?? "system default"}</span>
       <br />
       <span>isDarkTheme: {isDarkTheme ? "yes" : "no"}</span>
     </>
