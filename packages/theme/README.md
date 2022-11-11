@@ -24,27 +24,29 @@ First of all, we need to initialize `ThemeProvider` context, and after this we c
 hook `useTheme`.
 
 ```tsx
-import {ThemeProvider, useTheme} from "@marcus-rise/react-theme";
+import { ThemeProvider, useTheme } from "@marcus-rise/react-theme";
 
 const ThemeToggle = () => {
-  const {isDarkTheme, preferences, toggleTheme} = useTheme();
+  const { isDarkTheme, preferences, toggleTheme } = useTheme();
 
   return (
     <>
       <button onClick={toggleTheme}>toggle</button>
-      <br/>
-      <span>preferences: {JSON.stringify(preferences)}</span>
-      <br/>
+      <br />
+      <span>preferences: {preferences ?? "system default"}</span>
+      <br />
       <span>isDarkTheme: {isDarkTheme ? "yes" : "no"}</span>
     </>
-  )
-}
+  );
+};
 
 const App = () => (
   <ThemeProvider>
-    <ThemeToggle/>
+    <ThemeToggle />
   </ThemeProvider>
-)
+);
+
+export { App };
 ```
 
 ## API
