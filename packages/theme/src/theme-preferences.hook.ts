@@ -10,6 +10,10 @@ const useThemePreferences = () => {
     (data: ThemePreferences) => {
       dispatch({ type: ThemeReducerActions.SET_PREFERENCES, payload: data });
       localStorage.setItem(state.storageKey, data);
+
+      if (state.cookiesKey) {
+        document.cookie = `${state.cookiesKey}=${data}`;
+      }
     },
     [state.storageKey],
   );
@@ -17,6 +21,10 @@ const useThemePreferences = () => {
   const clearPreferences = useCallback(() => {
     dispatch({ type: ThemeReducerActions.CLEAR_PREFERENCES });
     localStorage.removeItem(state.storageKey);
+
+    if (state.cookiesKey) {
+      document.cookie = `${state.cookiesKey}=""; max-age=0`;
+    }
   }, [state.storageKey]);
 
   return { savePreferences, clearPreferences };
