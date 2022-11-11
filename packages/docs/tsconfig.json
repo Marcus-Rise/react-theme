@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
