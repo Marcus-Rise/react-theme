@@ -8,13 +8,13 @@ https://react-theme.marcus-rise.dev
 
 using `npm`
 
-```
+```bash
 npm install @marcus-rise/react-theme
 ```
 
 or using `yarn`
 
-```
+```bash
 yarn add @marcus-rise/react-theme
 ```
 
