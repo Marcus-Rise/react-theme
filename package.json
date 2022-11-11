@@ -11,18 +11,16 @@
   "publishConfig": {
     "access": "public"
   },
+  "source": "src/index.ts",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "typings": "dist/esm/types/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
-    "lint": "eslint .",
-    "rollup": "rollup --config rollup.config.ts --configPlugin typescript",
-    "build": "yarn rollup",
+    "lint": "eslint src",
+    "dev": "parcel watch",
     "prebuild": "rimraf dist",
-    "dev": "yarn build --watch",
-    "prepublishOnly": "yarn build",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build": "parcel build",
+    "prepublishOnly": "yarn build"
   },
   "files": [
     "dist/"
@@ -42,30 +40,26 @@
     "hook"
   ],
   "devDependencies": {
-    "@babel/core": "^7.20.2",
-    "@storybook/addon-actions": "^6.5.13",
-    "@storybook/addon-essentials": "^6.5.13",
-    "@storybook/addon-interactions": "^6.5.13",
-    "@storybook/addon-links": "^6.5.13",
-    "@storybook/builder-webpack4": "^6.5.13",
-    "@storybook/manager-webpack4": "^6.5.13",
-    "@storybook/react": "^6.5.13",
-    "@storybook/testing-library": "^0.0.13",
-    "@types/react": "^17.0.47",
+    "@parcel/packager-ts": "2.8.0",
+    "@parcel/transformer-typescript-types": "2.8.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
-    "babel-loader": "^9.1.0",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-storybook": "^0.6.7",
+    "parcel": "^2.8.0",
     "prettier": "^2.7.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
     "rimraf": "^3.0.2",
-    "typescript": "^4.8.4"
+    "typescript": "4.7"
   },
   "peerDependencies": {
-    "react": "^17.0.2"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "dependencies": {}
 }

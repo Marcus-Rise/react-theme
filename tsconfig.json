@@ -1,21 +1,12 @@
 {
   "compilerOptions": {
+    "target": "esnext",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "declaration": true,
-    "declarationDir": "types",
-    "emitDeclarationOnly": true,
-    "outDir": "dist",
-    "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
-    "jsx": "react-jsx",
-    "resolveJsonModule": true
+    "jsx": "react-jsx"
   },
   "include": [
     "src"
