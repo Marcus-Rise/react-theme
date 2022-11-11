@@ -2,5 +2,18 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "theme": "yarn workspace @marcus-rise/react-theme",
+    "docs": "yarn workspace docs",
+    "theme:build": "yarn theme lint && yarn theme build",
+    "docs:build": "yarn docs build",
+    "theme:dev": "yarn theme dev",
+    "docs:dev": "yarn docs dev",
+    "dev": "npm-run-all --parallel theme:dev docs:dev",
+    "build": "npm-run-all theme:build docs:build"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
 }

@@ -25,7 +25,4 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build
-        working-directory: ./packages/theme
-        run: |
-          yarn lint
-          yarn build
+        run: yarn theme:build
