@@ -25,6 +25,6 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Publish
-        run: yarn publish
+        run: yarn theme publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
