@@ -11,7 +11,8 @@
     "theme:dev": "yarn theme dev",
     "docs:dev": "yarn docs dev",
     "dev": "npm-run-all --parallel theme:dev docs:dev",
-    "build": "npm-run-all theme:build docs:build"
+    "build": "npm-run-all theme:build docs:build",
+    "publish": "yarn theme publish"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5"
