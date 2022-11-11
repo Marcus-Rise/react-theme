@@ -59,6 +59,12 @@ To set custom localStorage key set `preferencesStorageKey` property for user pre
 <ThemeProvider preferencesStorageKey={"OPTIONAL_APP_THEME_STORAGE_KEY"}>
 ```
 
+To save user preferences in cookies, provide `cookiesKey` prop as a cookie key string
+
+```tsx
+<ThemeProvider cookiesKey={"theme-preferences"}>
+```
+
 ### Hook `useTheme`
 
 - `isDarkTheme` is a`boolean` what color scheme is selected, basing on user preferences and system
