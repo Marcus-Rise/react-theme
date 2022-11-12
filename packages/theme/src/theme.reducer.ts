@@ -2,14 +2,16 @@ import type { Reducer } from "react";
 import type { ThemePreferences } from "./theme-preferences";
 
 type ThemeReducerState = {
-  isSystemThemeDark: boolean;
+  cookiesKey: string | null;
   storageKey: string;
+  isSystemThemeDark: boolean;
   preferences: ThemePreferences | null;
 };
 
 const themeReducerInitialState: ThemeReducerState = {
-  preferences: null,
+  cookiesKey: null,
   storageKey: "THEME_PREFERENCES",
+  preferences: null,
   isSystemThemeDark: false,
 };
 

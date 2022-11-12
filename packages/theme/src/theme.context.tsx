@@ -14,12 +14,18 @@ const ThemeContext = createContext<{
 
 type Config = {
   preferencesStorageKey?: string;
+  cookiesKey?: string | null;
 };
 
-const ThemeProvider: FC<PropsWithChildren<Config>> = ({ children, preferencesStorageKey }) => {
+const ThemeProvider: FC<PropsWithChildren<Config>> = ({
+  children,
+  preferencesStorageKey,
+  cookiesKey = null,
+}) => {
   const [state, dispatch] = useReducer(themeReducer, {
     ...themeReducerInitialState,
     storageKey: preferencesStorageKey ?? themeReducerInitialState.storageKey,
+    cookiesKey,
   });
 
   /**
@@ -59,6 +65,10 @@ const ThemeProvider: FC<PropsWithChildren<Config>> = ({ children, preferencesSto
         type: ThemeReducerActions.SET_PREFERENCES,
         payload: preferences,
       });
+
+      if (state.cookiesKey) {
+        document.cookie = `${state.cookiesKey}=${preferences}`;
+      }
     }
   }, []);
 

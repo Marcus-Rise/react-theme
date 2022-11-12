@@ -15,7 +15,7 @@ const ThemeToggle = () => {
 };
 
 const App = () => (
-  <ThemeProvider>
+  <ThemeProvider cookiesKey={"theme"}>
     <ThemeToggle />
   </ThemeProvider>
 );
