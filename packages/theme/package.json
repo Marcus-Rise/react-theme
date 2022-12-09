@@ -1,7 +1,7 @@
 {
   "name": "@marcus-rise/react-theme",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react theme toggle hook",
   "author": {
     "name": "Ilya Konstantinov",
@@ -56,8 +56,8 @@
     "typescript": "4.7"
   },
   "peerDependencies": {
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react": ">=17",
+    "react-dom": ">=17"
   },
   "dependencies": {}
 }
