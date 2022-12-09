@@ -3,6 +3,7 @@
   "license": "MIT",
   "version": "1.0.1",
   "description": "react theme toggle hook",
+  "type": "module",
   "author": {
     "name": "Ilya Konstantinov",
     "email": "ilya.konstantinov2022@mail.ru",
@@ -12,7 +13,6 @@
     "access": "public"
   },
   "source": "src/index.ts",
-  "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
